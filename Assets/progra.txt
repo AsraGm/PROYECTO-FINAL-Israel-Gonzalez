@@ -2,17 +2,6 @@
 Si el jugador cae en algún lado regresar a el principio.
 #JUGADOR#
 
-#INVENTARIO#
-Tienes un inventario de objetos con capacidad máxima de 
-8 objetos. Cada objeto debe tener alguna utilidad que te 
-permita avanzar por el nivel. Debes de poder ver tu inventario,
-este debe estar organizado en paginas/lotes de 4 objetos
-por página
-
-Cada objeto de el inventario debe de mostrar Nombre, 
-Descripción y una imagen de el objeto en cuestion.
-#INVENTARIO#
-
 #ENEMIGOS#
 Debe de haber 1 tipo de enemigo, el cual al acercarse lo 
 suficiente al jugador debe de explotar y dañarlo 
