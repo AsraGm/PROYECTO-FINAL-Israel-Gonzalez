@@ -746,9 +746,10 @@ GameObject:
   - component: {fileID: 8559432728779221169}
   - component: {fileID: 3876716691604674250}
   - component: {fileID: 3124969645131128445}
+  - component: {fileID: 4951066689344037496}
   m_Layer: 0
   m_Name: ENEMY #2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -800,9 +801,9 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &3124969645131128445
 BoxCollider:
@@ -819,12 +820,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 2.04, y: 3.89, z: 1}
   m_Center: {x: -0.34, y: -0.67, z: 3.33}
+--- !u!114 &4951066689344037496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6937343618639600363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bacd2be747324474db750d75d9cc256b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!1 &7558981269533738965
 GameObject:
   m_ObjectHideFlags: 0

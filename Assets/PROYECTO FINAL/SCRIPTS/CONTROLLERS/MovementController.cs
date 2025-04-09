@@ -127,7 +127,7 @@ public class MovementController : MonoBehaviour
     {
         return Input.GetKey(KeyCode.LeftControl);
     }
-    #endregion
+    #endregion  
 
     private float GetTargetSpeed()
     {

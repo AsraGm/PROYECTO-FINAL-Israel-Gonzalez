@@ -21,7 +21,7 @@ public class Heatlh : MonoBehaviour
         UpdateHeartsUI();
     }
 
-    public void TakeDamage(int damage)
+    public void GetDamage(int damage)
     {
         currentHearts -= damage;
         if (currentHearts < 0) currentHearts = 0;

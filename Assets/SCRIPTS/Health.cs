@@ -6,52 +6,42 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour, IDamageable
 {
+    [SerializeField] private Image[] corazones;
+    [SerializeField] private Respawn respawn; 
 
-    [SerializeField] private TMP_Text vidaTxt;
+    private int currentHealth;
+    private int maxHealth = 4;
 
-    [SerializeField] private Image[] corazones; // 5 corazones
-
-    int maxHealth = 5;
-
-    public int health { get => health; 
-        private set 
-        { 
-            health -= value; // Aqui se le resta el danio
-            
-            for(int i = 0; i < maxHealth; i++) // 3
-            {
-                if (i > health) // 3
-                {
-                    corazones[i].gameObject.SetActive(false);
-                }
-                else
-                {
-                    corazones[i].gameObject.SetActive(true);
-                }
-            }
-        } 
+    private void Start()
+    {
+        currentHealth = maxHealth;
+        UpdateHearts();
     }
-
-    public Apuntes apuntes;
 
     public void GetDamage(int damage)
     {
-        apuntes.Metodo();
-        apuntes.time = 8;
-        Debug.Log(apuntes._Numero);
-       
-        Debug.Log(apuntes.nombre + " recibio daño");
+        currentHealth -= damage;
+        UpdateHearts();
 
-
-        health = damage; // se guarda en una variable que se llama value
-
-        apuntes.BajarVida(health);
-
-        if(health <= 0)
+        if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            RespawnPlayer();
         }
-
     }
 
+    private void UpdateHearts()
+    {
+        for (int i = 0; i < corazones.Length; i++)
+        {
+            corazones[i].gameObject.SetActive(i < currentHealth);
+        }
+    }
+
+    private void RespawnPlayer()
+    {
+        currentHealth = maxHealth;
+        UpdateHearts();
+
+        respawn.TeleportPlayer(transform);
+    }
 }

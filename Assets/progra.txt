@@ -1,20 +1,10 @@
-#JUGADOR#
-Si el jugador cae en algún lado regresar a el principio.
-#JUGADOR#
 
-#ENEMIGOS#
-Debe de haber 1 tipo de enemigo, el cual al acercarse lo 
-suficiente al jugador debe de explotar y dañarlo 
-(No matarlo de 1 ataque). Debe tener un efecto de explosion.
 
-Debe haber areas en las que haya enemigos fijos.
 
-El jugador debe ser capaz de matar a los enemigos con 
-las armas
-#ENEMIGOS#
 
-#PUZZLES#
-Debe haber un final al que solo se pueda acceder después 
-de usar los 8 objetos, el cual unicamente hará que aparezca 
-un mensaje de victoria
-#PUZZLES#
+
+
+#SONIDOS#
+Se debe de agregar sonidos para cuando se dispara, 
+cuando activas algo usando un objeto y para cuando un enemigo explota
+#SONIDOS#
