@@ -5,16 +5,17 @@ using UnityEngine;
 
 namespace Player
 {
-    public class AUTORIFLE : WEAPON
+    public class Shotgun : Weapon
     {
         public override void Shoot()
         {
-            Debug.Log("PLOMAZO");
+            Debug.Log("SPASH");
         }
 
-        public override void Reload() 
-        { 
-    
+        public override void Reload()
+        {
+
         }
+
     }
 }

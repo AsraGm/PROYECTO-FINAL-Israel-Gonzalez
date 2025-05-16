@@ -1,47 +1,68 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WEAPONHANDLER : MonoBehaviour
+namespace Player
 {
-    [SerializeField] private Weapon[] weapons;
-    [SerializeField] private Weapon actualWeapon;
-
-    private System.Action shoot;
-
-    private void Start()
+    /// <summary>
+    /// Este script debe de realizar la siguientes funciones:
+    /// 
+    /// TAREA: 1.- Cambiar de arma. Por lo que siempre debe de haber como minimo 2 armas.
+    /// El cambio de arma se debe de realizar si o si, usando la rueda del mouse
+    /// 
+    /// EJERUCICIO / TAREA 2.- Segun el arma equipada debe de disparar según su funcion
+    /// 
+    /// 3.- Segun el arma equipada debe de recargar de la manera correspondiente
+    /// 
+    /// 4.- Al cambiar de arma, debe de aparecer en pantalla la municion de esa arma
+    /// </summary>
+    public class WeaponHandler : MonoBehaviour
     {
-        Shoot = AutomaticShoot;
+        [SerializeField] private Weapon[] weapons;
+        [SerializeField] private Weapon actualWeapon;
 
-        switch (currentWeapon.GetWeaponType())
+        // Una Action es una variable donde puedes guardar metodos
+        private Action Shoot;
+
+        private void Start()
         {
-            case WeaponType.AutoRifle:
-                shootMethod = AutomaticShoot;
-                break;
+            Shoot = AutomaticShoot;
 
-            case WeaponType.Pistol:
-                shootMethod = SemiAutomaticShoot;
-                break;
+            switch (actualWeapon) // Weapon
+            {
+                // Lo que el caso entiende, es Weapon, no AutomaticRifle
+                case AutomaticRifle: // AutomaticRifle hereda de Weapon, por lo tanto es Weapon
+                    {
+                        Shoot = AutomaticShoot;
+                        break;
+                    }
 
-            case WeaponType.Shotgun:
-                shootMethod = SemiAutomaticShoot; // O podrías tener un método PumpActionShoot
-                break;
+                    // Weapon
+                case Handgun:
+                    {
+                        Shoot = SemiAutomaticShoot;
+                        break;
+                    }
+                    // Weapon
+                case Shotgun:
+                {
+                        Shoot = SemiAutomaticShoot;
 
-            default:
-                Debug.LogWarning("Tipo de arma no reconocido, usando disparo semiautomático por defecto");
-                shootMethod = SemiAutomaticShoot;
-                break;
+                        break;
+                }
+            }
+
         }
-    }
 
-    private void Update()
+        private void Update()
         {
             Shoot();
         }
 
         private void AutomaticShoot()
         {
-            if (actualWeapon.CheackAmmo() && Input.GetMouseButtom(0))
+            if (actualWeapon.CheckAmmo() && Input.GetMouseButton(0))
             {
                 actualWeapon.Shoot();
             }
@@ -49,7 +70,7 @@ public class WEAPONHANDLER : MonoBehaviour
 
         private void SemiAutomaticShoot()
         {
-            if (actualWeapon.CheackAmmo() && Input.GetMouseButtom(0))
+            if (actualWeapon.CheckAmmo() && Input.GetMouseButtonDown(0))
             {
                 actualWeapon.Shoot();
             }

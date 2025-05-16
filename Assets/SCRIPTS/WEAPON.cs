@@ -1,28 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
-namespace Player 
-{ 
-    public abstract class WEAPON : MonoBehaviour
+
+namespace Player
+{
+    public abstract class Weapon : MonoBehaviour
     {
-        public int damage;
-        public float range;
-        public float fireRate; //cadencia del arma
-        public float accuracy; // punteria
 
-        public int currentAmmo;
-        public int currentMaxAmmo;
-        public int ammo;
-        public int maxAmmo;
+        public string weaponName;
 
-        public abstract void Shoot(); 
+        public int damage; // daño del arma
+        public float range; // alcance del arma
+        public float fireRate; // cadencia del arma
+        public float accuracy; // punteria: Que tanto se mueve el arma o dispara hacia donde apuntas
 
-        public abstract void Reload();
+        public int currentAmmo; // municion de mi cargador actual
+        public int currentMaxAmmo; // capacidad maxima de el cargador
+        public int ammo; // municion disponible en la reserva
+        public int maxAmmo; // capacidad maxima de mi reserva
+
+        public abstract void Shoot(); // Insta
+
+        public abstract void Reload(); // Youtube
 
         public bool CheckAmmo()
         {
             return currentAmmo <= 0 && ammo <= 0;
         }
+
     }
 }
+
